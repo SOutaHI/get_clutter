@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import matplotlib.patches as patches
 from scipy.spatial import ConvexHull
+import sys
 
 divide = 2 #状態量の数
 R = np.zeros((divide,divide))    #相関行列
@@ -61,7 +62,7 @@ if __name__ == '__main__':
 
     curve_c = np.zeros((2,div+1))
 
-    img = Image.open('depth_height.png')
+    img = Image.open(str(sys.argv[1]))
 
 
     width, height = img.size
@@ -165,15 +166,15 @@ if __name__ == '__main__':
 
     plt.scatter(avg[0],avg[1], c='red', s=10)
     plt.plot(x,y)
-    plt.plot(x,ver_y)
+    # plt.plot(x,ver_y)
 
-    plt.scatter(curve_c[0,50], curve_c[1,50],c='r', s=60)
-    plt.scatter(curve_c[0,55], curve_c[1,55],c='r', s=60)
-    plt.scatter(curve_c[0,100], curve_c[1,100],c='r', s=20)
-    plt.scatter(curve_c[0,25], curve_c[1,25],c='r', s=80)
-    plt.scatter(curve_c[0,5], curve_c[1,5],c='r', s=80)
-    plt.scatter(curve_c[0,0], curve_c[1,0],c='r', s=100)
-    plt.scatter(curve_c[0,75], curve_c[1,75],c='r', s=40)
+    # plt.scatter(curve_c[0,50], curve_c[1,50],c='r', s=60)
+    # plt.scatter(curve_c[0,55], curve_c[1,55],c='r', s=60)
+    # plt.scatter(curve_c[0,100], curve_c[1,100],c='r', s=20)
+    # plt.scatter(curve_c[0,25], curve_c[1,25],c='r', s=80)
+    # plt.scatter(curve_c[0,5], curve_c[1,5],c='r', s=80)
+    # plt.scatter(curve_c[0,0], curve_c[1,0],c='r', s=100)
+    # plt.scatter(curve_c[0,75], curve_c[1,75],c='r', s=40)
      
     
     hull = ConvexHull(points)
