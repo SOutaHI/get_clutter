@@ -77,6 +77,7 @@ if __name__ == '__main__':
     img_pixels = np.array(img_pixels)
     img_matrix = img_pixels.reshape([width,height])
 
+    
     scatter_x = []
     scatter_y = []
 
@@ -92,7 +93,7 @@ if __name__ == '__main__':
     points = np.array([np_scatter_x,np_scatter_y]).T
 
     data = points
-    print(data.shape)
+    # print(data.shape)
 
     #単位空間の作成
     _ = maha(data)
@@ -116,7 +117,7 @@ if __name__ == '__main__':
         
         curve_c[0,i] = avg[0] + std[0]*r*np.cos(i*2*np.pi/div)
         curve_c[1,i] = avg[1] + std[1]*r*np.sin(i*2*np.pi/div)
-        print(i)
+        # print(i)
 
     distance = np.zeros(div+1)
 
@@ -167,6 +168,11 @@ if __name__ == '__main__':
     plt.scatter(avg[0],avg[1], c='red', s=10)
     plt.plot(x,y)
     # plt.plot(x,ver_y)
+    
+    r = patches.Rectangle(xy=(0, 0), width=224, height=224, ec='#000000', fill=False)
+    ax = plt.axes()
+    ax.add_patch(r)
+    
 
     # plt.scatter(curve_c[0,50], curve_c[1,50],c='r', s=60)
     # plt.scatter(curve_c[0,55], curve_c[1,55],c='r', s=60)
@@ -184,7 +190,7 @@ if __name__ == '__main__':
     hp = np.vstack((hull_points, hull_points[0]))
     plt.plot(hp[:,0], hp[:,1])
 
-    plt.xlim([0,250])
-    plt.ylim([0,250])
-
+    plt.xlim([0,300])
+    plt.ylim([0,300])
+    plt.savefig("out.png")
     plt.show()
