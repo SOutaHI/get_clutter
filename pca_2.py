@@ -31,11 +31,7 @@ for y in range(height):
 np_scatter_x = np.array(scatter_x)
 np_scatter_y = np.array(scatter_y)
 
-x = np.linspace(0.2,1,100)
-y = 0.8*x + np.random.randn(100)*0.1
-# X = np.vstack([x, y]).T
 X = np.vstack([np_scatter_x, np_scatter_y]).T
-# np.random.shuffle(X)
 
 # plot data
 # fig = plt.figure()
